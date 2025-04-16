@@ -1,0 +1,181 @@
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: #4D46A5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+    ul {
+        display: flex;
+        gap: 38px;
+        border: 1px solid #DFDFDF;
+        border-radius: 20px;
+        padding: 8px;
+    }
+    li {
+        padding: 18px 24px;
+        font-weight: 500;
+        font-size: 20px;
+        border-radius: 14px;
+        cursor: pointer;
+    }
+}
+
+
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+    max-width: 580px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+
+.text { 
+    .categoryName {
+        font-weight: 700;
+        font-size: 16px;
+        color: #5B5B5E;
+        margin-bottom: 14px;
+    }
+    .price {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 35px;
+        p {
+            font-weight: 700;
+            font-size: 24px;
+        }
+    }
+    .description {
+        font-weight: 700;
+        font-size: 16px;
+        width: 348px;
+        margin-bottom: 24px;
+        line-height: 25px;
+    }
+    .radio1 {
+        display: flex;
+        margin-bottom: 30px;
+        gap: 14px;
+        p {
+            font-weight: 500;
+            font-size: 16px;
+            padding-top: 4px;
+        }
+        input {
+            transform: scale(1.5);
+        }
+    }
+    .radio2 {
+        display: flex;
+        margin-bottom: 30px;
+        gap: 14px;
+        p {
+            font-weight: 500;
+            font-size: 16px;
+            padding-top: 4px;
+        }
+        input {
+            transform: scale(1.5);
+        }   
+    }
+}
+
+button {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 20px 157px;
+    background-color: #4D46A5;
+    border-radius: 36px;
+    border: none;
+    color: white;
+    margin-bottom: 60px;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease; /* Transisi efek */
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.05); /* Sedikit membesar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Tambahkan bayangan lebih besar */
+}
+
+
+li.active {
+    background-color: #45A69A;
+    color: white;
+}
+
+.category ul li {
+    padding: 24px 30px;
+    font-weight: 500;
+    font-size: 20px;
+    border-radius: 14px;
+    background-color: transparent;
+    color: black;
+    transition: all 0.3s ease; /* tambahin ini biar halus */
+}
+
+.category ul li.active {
+    background-color: #45A69A;
+    color: white;
+}
+
+#notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #45A69A;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#notification.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+#notification.hidden {
+    transform: translateY(-20px);
+}
+
+@media screen and (max-width: 768px) {
+    .category {
+        display: flex;
+        justify-content: center;
+        margin: 50px 0px;
+        ul {
+            display: flex;
+            gap: 2px;
+            border: 1px solid #DFDFDF;
+            border-radius: 20px;
+            padding: 8px;
+        }
+        li {
+            padding: 2px 2px;
+            font-weight: 400;
+            font-size: 10px;
+            border-radius: 14px;
+            cursor: pointer;
+        }
+    }
+}

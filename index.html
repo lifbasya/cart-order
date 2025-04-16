@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bacasime+Antique&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Michroma&family=Oswald:wght@200..700&family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&family=Sora:wght@100..800&family=Spline+Sans:wght@300..700&family=Young+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section>
+        <div class="category">
+            <ul>
+                <li>Basic</li>
+                <li class="active">Standard</li>
+                <li>Premium</li>
+            </ul>
+        </div>
+        <div class="text">
+            <p class="categoryName">STANDARD</p>
+            <div class="price">
+                <p class="priceTitle">Icon Sets</p>
+                <p class="priceValue">$120</p>
+            </div>
+            <p class="description">Up to 100 creative & professional icons + two color versions/themes per month</p>
+            <div class="radio1">
+                <img src="./checklist.svg" alt="">
+                <p>Included source files</p>
+            </div>
+            <div class="radio2">
+                <img src="./checklist.svg" alt="">
+                <p>Converted to responsive components</p>
+            </div>
+        </div>
+        <div id="notification" class="hidden">Your order has been added to the cart!</div>
+        <button>Add to cart</button>
+    </section>
+    <script>
+        const categoryItems = document.querySelectorAll('.category ul li');
+        const categoryName = document.querySelector('.categoryName');
+        const priceTitle = document.querySelector('.priceTitle');
+        const priceValue = document.querySelector('.priceValue');
+        const description = document.querySelector('.description');
+    
+        // Data paket
+        const packageData = {
+            'Basic': {
+                name: 'BASIC',
+                priceTitle: 'Icon Sets',
+                priceValue: '$60',
+                description: 'Up to 50 creative & professional icons + one color versions/themes'
+            },
+            'Standard': {
+                name: 'STANDARD',
+                priceTitle: 'Icon Sets',
+                priceValue: '$120',
+                description: 'Up to 100 creative & professional icons + two color versions/themes per month'
+            },
+            'Premium': {
+                name: 'PREMIUM',
+                priceTitle: 'Icon Sets',
+                priceValue: '$180',
+                description: 'Up to 200 creative & professional  icons + four color versions/themes'
+            }
+        };
+    
+        categoryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                // Reset class active
+                categoryItems.forEach(li => li.classList.remove('active'));
+                item.classList.add('active');
+    
+                // Ambil teks pilihan
+                const selected = item.textContent.trim();
+    
+                // Update isi konten
+                if(packageData[selected]) {
+                    categoryName.textContent = packageData[selected].name;
+                    priceTitle.textContent = packageData[selected].priceTitle;
+                    priceValue.textContent = packageData[selected].priceValue;
+                    description.textContent = packageData[selected].description;
+                }
+            });
+        });
+
+        const addToCartButton = document.querySelector('button');
+        const notification = document.getElementById('notification');
+
+        addToCartButton.addEventListener('click', () => {
+            notification.classList.remove('hidden');
+            notification.classList.add('show');
+
+            setTimeout(() => {
+                notification.classList.remove('show');
+                notification.classList.add('hidden');
+            }, 2500);
+        });
+
+        const radio2Img = document.querySelector('.radio2 img');
+
+categoryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        // Reset class active
+        categoryItems.forEach(li => li.classList.remove('active'));
+        item.classList.add('active');
+
+        // Ambil teks pilihan
+        const selected = item.textContent.trim();
+
+        // Update isi konten
+        if(packageData[selected]) {
+            categoryName.textContent = packageData[selected].name;
+            priceTitle.textContent = packageData[selected].priceTitle;
+            priceValue.textContent = packageData[selected].priceValue;
+            description.textContent = packageData[selected].description;
+
+            // Ganti gambar radio2 kalau Basic
+            if(selected === 'Basic') {
+                radio2Img.src = './checklist2.svg';  // ganti dengan path gambarmu
+            } else {
+                radio2Img.src = './checklist.svg';  // gambar default
+            }
+        }
+    });
+});
+    </script>
+</body>
+</html>
